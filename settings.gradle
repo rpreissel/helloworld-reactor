@@ -1,0 +1,3 @@
+rootProject.name = 'helloworld-reactor'
+include ':helloworld-lib'
+include ':helloworld-app'
