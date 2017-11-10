@@ -10,26 +10,15 @@
     </parent>
 
     <artifactId>helloworld-lib</artifactId>
-    <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <name>HelloWorld-Lib</name>
-
-    <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <url>${nexus.home}/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>${nexus.home}/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
 
     <dependencies>
         <!-- Test -->
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

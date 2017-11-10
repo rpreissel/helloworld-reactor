@@ -13,17 +13,6 @@
     <packaging>jar</packaging>
     <name>HelloWorld-App</name>
 
-    <distributionManagement>
-        <repository>
-            <id>nexus-releases</id>
-            <url>${nexus.home}/maven-releases/</url>
-        </repository>
-        <snapshotRepository>
-            <id>nexus-snapshots</id>
-            <url>${nexus.home}/maven-snapshots/</url>
-        </snapshotRepository>
-    </distributionManagement>
-
     <dependencies>
         <!-- Compile -->
         <dependency>
@@ -55,6 +44,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <classifier>exec</classifier>
+                </configuration>
                 <executions>
                    <execution>
                        <goals>

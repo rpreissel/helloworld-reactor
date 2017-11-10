@@ -76,4 +76,15 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <distributionManagement>
+        <repository>
+            <id>nexus-releases</id>
+            <url>${nexus.home}/maven-releases/</url>
+        </repository>
+        <snapshotRepository>
+            <id>nexus-snapshots</id>
+            <url>${nexus.home}/maven-snapshots/</url>
+        </snapshotRepository>
+    </distributionManagement>
 </project>
