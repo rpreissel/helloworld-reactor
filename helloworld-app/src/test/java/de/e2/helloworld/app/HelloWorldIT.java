@@ -1,31 +1,23 @@
 package de.e2.helloworld.app;
 
-import java.util.Map;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.hamcrest.Matchers;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
-import org.springframework.test.annotation.DirtiesContext;
-import org.springframework.test.context.junit4.SpringRunner;
-
-@RunWith(SpringRunner.class)
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT)
-@DirtiesContext
+@org.junit.jupiter.api.extension.ExtendWith(org.springframework.test.context.junit.jupiter.SpringExtension.class)
+@org.springframework.boot.test.context.SpringBootTest(webEnvironment = org.springframework.boot.test.context.SpringBootTest.WebEnvironment.RANDOM_PORT)
+@org.springframework.test.annotation.DirtiesContext
 public class HelloWorldIT {
 
-  @Autowired
-  private HelloWorldController helloWorldController;
+    @org.springframework.beans.factory.annotation.Autowired
+    private HelloWorldController helloWorldController;
 
-  @Test
-  public void helloMessage() {
-    Map<String, String> helloMessage = helloWorldController.hello("Rene");
-    Assert.assertThat(helloMessage.keySet(), Matchers.hasSize(1));
-    Assert.assertThat(helloMessage.keySet(), Matchers.contains("message"));
-    Assert.assertThat(helloMessage.get("message"), Matchers.containsString("Rene"));
-  }
+    @org.junit.jupiter.api.Test
+    public void helloMessage() {
+        java.util.Map<String, String> helloMessage = helloWorldController.hello("Rene");
+        assertAll("message",
+                () -> assertEquals(helloMessage.keySet().size(), 1),
+                () -> assertTrue(helloMessage.keySet().contains("message")),
+                () -> assertTrue(helloMessage.get("message").contains("Rene"))
+        );
+    }
 
 }
